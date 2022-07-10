@@ -14,3 +14,24 @@ mkdir react-app
 cd react-app
 create-react-app .
 ```
+
+### start
+
+```bash
+npm run start
+```
+
+### build
+
+> 실서버 환경: 실제로 서비스할 때는 build 디렉토리 사용하기
+
+```bash
+npm run build
+```
+
+### serve
+
+```bash
+npm install -g serve # 웹서버 설치
+npx serve -s build # build directory를 document root로 설정
+```
