@@ -8,8 +8,8 @@ class Subject extends Component {
       // JS 코드가 아니고, JSX!
       // JSX로 작성하면 creat-react-app이 자동으로 JS 코드로 컨버팅해준다.
       <header>
-        <h1>WEB</h1>
-        World Wide Web!
+        <h1>{this.props.title}</h1>
+        {this.props.sub}
       </header>
     );
   }
@@ -39,8 +39,8 @@ class Content extends Component {
   render() {
     return (
       <article>
-        <h2>HTML</h2>
-        HTML is HyperText Markup Language.
+        <h2>{this.props.title}</h2>
+        {this.props.desc}
       </article>
     );
   }
@@ -48,11 +48,16 @@ class Content extends Component {
 
 class App extends Component {
   render() {
+    // 사용자 정의 태그를 만들 수 있다.
     return (
       <div className='App'>
-        <Subject></Subject>
+        <Subject title='WEB' sub='World Wide Web!'></Subject>
+        <Subject title='React' sub='For UI'></Subject>
         <TOC></TOC>
-        <Content></Content>
+        <Content
+          title='HTML'
+          desc='HTML is HyperText Markup Language.'
+        ></Content>
       </div>
     );
   }
