@@ -1,8 +1,17 @@
 # 📌 React Simple Practice
 
-[생활코딩](https://www.inflearn.com/course/react-%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A9/)
+## [생활코딩](https://www.inflearn.com/course/react-%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A9/)
 
-## 📁 개발환경 Setup
+<br/>
+
+## 👩‍💻 목차
+
+1. [개발환경 Setup](##1-개발환경-Setup)
+2. [컴포넌트 제작](##2-컴포넌트-제작)
+
+<br/>
+
+## 1. 개발환경 Setup
 
 ### npm
 
@@ -38,7 +47,7 @@ npx serve -s build # build directory를 document root로 설정
 
 <br/>
 
-## 📁 컴포넌트 제작
+## 2. 컴포넌트 제작
 
 ### HTML
 
@@ -127,4 +136,33 @@ class App extends Component {
 }
 
 export default App;
+```
+
+### props
+
+```js
+class Subject extends Component {
+  render() {
+    return (
+      <header>
+        <h1>{this.props.title}</h1>
+        {this.props.sub}
+      </header>
+    );
+  }
+}
+
+class App extends Component {
+  render() {
+    // 사용자 정의 태그를 만들 수 있다.
+    return (
+      <div className='App'>
+        <Subject title='WEB' sub='World Wide Web!'></Subject>
+        <Subject title='React' sub='For UI'></Subject>
+        <TOC></TOC>
+        <Content></Content>
+      </div>
+    );
+  }
+}
 ```
