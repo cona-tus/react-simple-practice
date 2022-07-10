@@ -2,7 +2,7 @@
 
 [생활코딩](https://www.inflearn.com/course/react-%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A9/)
 
-## 개발환경 Setup
+## 📁 개발환경 Setup
 
 ### npm
 
@@ -34,4 +34,97 @@ npm run build
 ```bash
 npm install -g serve # 웹서버 설치
 npx serve -s build # build directory를 document root로 설정
+```
+
+<br/>
+
+## 📁 컴포넌트 제작
+
+### HTML
+
+```html
+<html>
+  <body>
+    <header>
+      <h1>WEB</h1>
+      World Wide Web!
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="1.html">HTML</a></li>
+        <li><a href="2.html">CSS</a></li>
+        <li><a href="3.html">JavaScript</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <h2>HTML</h2>
+      HTML is HyperText Markup Language.
+    </article>
+  </body>
+</html>
+```
+
+### React
+
+```js
+class Subject extends Component {
+  render() {
+    return (
+      // 하나의 최상위 태그만 사용해야 한다.
+      // JS 코드가 아니고, JSX!
+      // JSX로 작성하면 creat-react-app이 자동으로 JS 코드로 컨버팅해준다.
+      <header>
+        <h1>WEB</h1>
+        World Wide Web!
+      </header>
+    );
+  }
+}
+
+class TOC extends Component {
+  render() {
+    return (
+      <nav>
+        <ul>
+          <li>
+            <a href='1.html'>HTML</a>
+          </li>
+          <li>
+            <a href='2.html'>CSS</a>
+          </li>
+          <li>
+            <a href='3.html'>JavaScript</a>
+          </li>
+        </ul>
+      </nav>
+    );
+  }
+}
+
+class Content extends Component {
+  render() {
+    return (
+      <article>
+        <h2>HTML</h2>
+        HTML is HyperText Markup Language.
+      </article>
+    );
+  }
+}
+
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        <Subject></Subject>
+        <TOC></TOC>
+        <Content></Content>
+      </div>
+    );
+  }
+}
+
+export default App;
 ```
