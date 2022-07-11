@@ -38,11 +38,25 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <Subject
+        {/* <Subject
           title={this.state.subject.title}
           sub={this.state.subject.sub}
-        ></Subject>
-        <Subject title='React' sub='For UI'></Subject>
+        ></Subject> */}
+        <header>
+          <h1>
+            <a
+              href='/'
+              onClick={function (e) {
+                console.log(e);
+                e.preventDefault(); // 페이지가 전환되지 않는다. 새로고침❌
+                // alert('Hi'); 페이지가 리로드된다.
+              }}
+            >
+              {this.state.subject.title}
+            </a>
+          </h1>
+          {this.state.subject.sub}
+        </header>
         <TOC data={this.state.contents}></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
