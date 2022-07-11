@@ -8,6 +8,7 @@
 
 1. [개발환경 Setup](#1-개발환경-Setup)
 2. [컴포넌트 제작](#2-컴포넌트-제작)
+3. [State](#3-State-&-Key)
 
 <br/>
 
@@ -49,7 +50,7 @@ npx serve -s build # build directory를 document root로 설정
 
 ## 2. 컴포넌트 제작
 
-### 2.1. HTML
+### 2.1.1. HTML
 
 ```html
 <html>
@@ -75,7 +76,7 @@ npx serve -s build # build directory를 document root로 설정
 </html>
 ```
 
-### 2.1. React
+### 2.1.2 React
 
 ```js
 class Subject extends Component {
@@ -171,7 +172,7 @@ class App extends Component {
 
 <br/>
 
-### 2.3. state & key
+## 3. State & Key
 
 📁 App.js
 
