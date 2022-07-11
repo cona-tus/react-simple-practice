@@ -2,13 +2,15 @@
 
 ## [생활코딩](https://www.inflearn.com/course/react-%EC%83%9D%ED%99%9C%EC%BD%94%EB%94%A9/)
 
+![생활코딩](https://cdn.inflearn.com/public/courses/324041/course_cover/c7ef7e48-adbc-4bc7-b71e-2cd19240019d/egoing_react.jpg)
+
 <br/>
 
 ## 👩‍💻 목차
 
 1. [개발환경 Setup](#1-개발환경-Setup)
 2. [컴포넌트 제작](#2-컴포넌트-제작)
-3. [State](#3-State-&-Key)
+3. [State](#3-state--key)
 
 <br/>
 
@@ -214,6 +216,8 @@ class App extends Component {
 
 export default App;
 ```
+
+<br/>
 
 📁 TOC.js
 
