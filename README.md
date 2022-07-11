@@ -6,14 +6,14 @@
 
 ## 👩‍💻 목차
 
-1. [개발환경 Setup](##1-개발환경-Setup)
-2. [컴포넌트 제작](##2-컴포넌트-제작)
+1. [개발환경 Setup](#1-개발환경-Setup)
+2. [컴포넌트 제작](#2-컴포넌트-제작)
 
 <br/>
 
 ## 1. 개발환경 Setup
 
-### npm
+### 1.1. npm
 
 ```bash
 npm install -g create-react-app
@@ -24,13 +24,13 @@ cd react-app
 create-react-app .
 ```
 
-### start
+### 1.2. start
 
 ```bash
 npm run start
 ```
 
-### build
+### 1.3. build
 
 > 실서버 환경: 실제로 서비스할 때는 build 디렉토리 사용하기
 
@@ -38,7 +38,7 @@ npm run start
 npm run build
 ```
 
-### serve
+### 1.4. serve
 
 ```bash
 npm install -g serve # 웹서버 설치
@@ -49,7 +49,7 @@ npx serve -s build # build directory를 document root로 설정
 
 ## 2. 컴포넌트 제작
 
-### HTML
+### 2.1. HTML
 
 ```html
 <html>
@@ -75,7 +75,7 @@ npx serve -s build # build directory를 document root로 설정
 </html>
 ```
 
-### React
+### 2.1. React
 
 ```js
 class Subject extends Component {
@@ -138,7 +138,9 @@ class App extends Component {
 export default App;
 ```
 
-### props
+<br/>
+
+### 2.2. props
 
 ```js
 class Subject extends Component {
@@ -165,4 +167,77 @@ class App extends Component {
     );
   }
 }
+```
+
+<br/>
+
+### 2.3. state & key
+
+📁 App.js
+
+```js
+class App extends Component {
+  constructor(props) {
+    super(props); // state 값 초기화
+    // 1. render 함수보다 먼저 실행이 된다.
+    // 2. 컴포넌트를 초기화시켜주고 싶은 코드는 constructor 안에 코드를 작성한다.
+    this.state = {
+      subject: { title: 'WEB', sub: 'World Wide Web!' },
+      contents: [
+        { id: 1, title: 'HTML', desc: 'HTML is for information' },
+        { id: 2, title: 'CSS', desc: 'CSS is for design' },
+        { id: 3, title: 'JavaScript', desc: 'JavaScript is for interactive' },
+      ],
+    };
+  }
+
+  render() {
+    return (
+      <div className='App'>
+        <Subject
+          // 상위 컴포넌트인 App의 상태를 하위 컴포넌트로 전달하고 싶을 때는
+          // 상위 컴포넌트의 state 값을 하위 컴포넌트의 props의 값으로 전달할 수 있다.
+          title={this.state.subject.title}
+          sub={this.state.subject.sub}
+        ></Subject>
+        <Subject title='React' sub='For UI'></Subject>
+        <TOC data={this.state.contents}></TOC>
+        <Content
+          title='HTML'
+          desc='HTML is HyperText Markup Language.'
+        ></Content>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+📁 TOC.js
+
+```js
+class TOC extends Component {
+  render() {
+    var lists = [];
+    var data = this.props.data;
+    var i = 0;
+    while (i < data.length) {
+      lists.push(
+        <li key={data[i].id}>
+          <a href={'/content/' + data[i].id}>{data[i].title}</a>
+        </li>
+      );
+      i = i + 1;
+    }
+
+    return (
+      <nav>
+        <ul>{lists}</ul>
+      </nav>
+    );
+  }
+}
+
+export default TOC;
 ```
