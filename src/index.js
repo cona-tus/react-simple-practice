@@ -11,7 +11,7 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// <App />: 외부에서 알 필요 없는 정보를 은닉하는 것이 좋은 사용성을 만드는 핵심이다.
+// App이 내부적으로 사용할 상태는 state라는 형태를 통해서 사용한다.
+
 reportWebVitals();
