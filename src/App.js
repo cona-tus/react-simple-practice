@@ -12,7 +12,7 @@ class App extends Component {
     // 해당되는 컴포넌트의 render 함수가 호출되도록 약속되어있다.
     // 고로, 화면이 다시 그려진다.
     this.state = {
-      mode: 'welcome',
+      mode: 'read',
       subject: { title: 'WEB', sub: 'World Wide Web!' },
       welcome: { title: 'Welcome', desc: '👋 Hello, React!' },
       contents: [
@@ -49,8 +49,15 @@ class App extends Component {
               onClick={function (e) {
                 console.log(e);
                 e.preventDefault(); // 페이지가 전환되지 않는다. 새로고침❌
-                // alert('Hi'); 페이지가 리로드된다.
-              }}
+                // this.state.mode = 'welcome'; // ⚠️ Error
+                // 1. 이벤트가 호출됐을 때 실행되는 함수 안에서는 this의 값이 컴포넌트 자기 자신을 가리키지 않고 아무 값도 세팅되어있지 않다.
+                // => 이럴 때는 bind(this)를 사용하기
+                // 2. 리액트는 state가 바뀐 걸 모르기 때문에 아무 일도 일어나지 않는다.
+                // => this.setState 사용하기
+                this.setState({
+                  mode: 'welcome',
+                });
+              }.bind(this)}
             >
               {this.state.subject.title}
             </a>
