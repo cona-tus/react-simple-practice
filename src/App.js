@@ -35,7 +35,7 @@ class App extends Component {
       _title = this.state.contents[0].title;
       _desc = this.state.contents[0].desc;
     }
-
+    // console.log('render', this); // render 함수 안에서 this는 컴포넌트 자신을 가리킨다.
     return (
       <div className='App'>
         {/* <Subject
@@ -47,6 +47,9 @@ class App extends Component {
             <a
               href='/'
               onClick={function (e) {
+                // console.log('event in', this); // undefined
+
+                return;
                 console.log(e);
                 e.preventDefault(); // 페이지가 전환되지 않는다. 새로고침❌
                 // this.state.mode = 'welcome'; // ⚠️ Error
@@ -57,7 +60,7 @@ class App extends Component {
                 this.setState({
                   mode: 'welcome',
                 });
-              }.bind(this)}
+              }} // bind(this)는 App이라는 컴포넌트 자체를 가리키는 객체를 onClick 함수 안으로 주입해서 함수 안에서 this는 그 객체가 되게 만든다.
             >
               {this.state.subject.title}
             </a>
