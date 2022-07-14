@@ -11,6 +11,16 @@
 1. [개발환경 Setup](#1-개발환경-Setup)
 2. [컴포넌트 제작](#2-컴포넌트-제작)
 3. [State](#3-state--key)
+4. [Event](#4-event)
+
+<br/>
+
+## ✨ 결과물
+
+<details>
+  <summary>자세히 보기: React Simple App</summary>
+    <img src="https://cdn.inflearn.com/public/files/courses/324041/96463c54-65ca-49eb-92e2-cb6cafcec06b/react.gif" alt="생활코딩 애플리케이션" />
+</details>
 
 <br/>
 
@@ -246,3 +256,49 @@ class TOC extends Component {
 
 export default TOC;
 ```
+
+<br/>
+
+## 4. Event
+
+리액트에서는 props의 값이나 state 값이 바뀌면 해당되는 컴포넌트의 render 함수가 호출되도록 약속되어있다. 고로, 화면이 다시 그려진다.
+
+```js
+<a
+  href='/'
+  onClick={function (e) {
+    e.preventDefault(); // 화면이 다시 그려질 때, 페이지가 새로고침되지 않도록 만든다.
+    this.setState({
+      mode: 'welcome',
+    });
+  }.bind(this)}
+>
+  {this.state.subject.title}
+</a>
+```
+
+this.state.mode = 'welcome'는 사용할 수 없다.
+
+1. 이벤트가 호출됐을 때 실행되는 함수 안에서는 this의 값이 컴포넌트 자기 자신을 가리키지 않고 아무 값도 세팅되어있지 않다.
+2. `bind(this)`를 사용하면, App이라는 컴포넌트 자체를 가리키는 객체를 onClick 함수 안으로 주입해서 함수 안에서 this는 그 객체가 되게 만든다.
+3. `this.setState`를 사용해서 리액트에게 state가 바뀐 것을 알려주자.
+
+<br/>
+
+### props VS state
+
+| props                     | state                                     |
+| ------------------------- | ----------------------------------------- |
+| props                     | state                                     |
+| props are read-only       | state changes can be asynchronous         |
+| props can not be modified | state can be modified using this.setState |
+
+- props는 부모(상위) 컴포넌트가 자식(하위) 컴포넌트에게 주는 값이다. 자식에서 직접 수정할 수 없다. 내부적으로 필요한 데이터나 상태는 컴포넌트 자기 자신이 가지고 있는 값인 state를 통해 관리한다.
+- props와 state 모두 render 함수 호출을 유발하기 때문에, props와 state를 사용하여 UI를 바꿀 수 있다.
+- 상위 컴포넌트가 하위 컴포넌트로 값을 전달할 때는 props를 사용한다. 하위 컴포넌트가 상위 컴포넌트의 값을 바꾸고 싶을 때는, event를 통해서 한다.
+
+<br/>
+
+---
+
+<br/>
