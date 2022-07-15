@@ -11,12 +11,6 @@ class TOC extends Component {
       return false;
     }
     return true;
-
-    /**
-     * 1. render 이전에 shouldComponentUpdate가 실행된다.
-     * 2. return이 true면 render가 호출되고, return이 false면 render는 호출되지 않도록 약속되어있다.
-     * 3. shouldComponentUpdate는 새로 바뀐 값과, 이전 값에 접근할 수 있다.
-     */
   }
 
   render() {
