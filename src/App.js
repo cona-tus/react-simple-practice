@@ -9,6 +9,7 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.max_content_id = 3;
     this.state = {
       mode: 'create',
       selected_content_id: 2,
@@ -48,7 +49,23 @@ class App extends Component {
       _article = (
         <CreateContent
           onSubmit={function (_title, _desc) {
-            console.log(_title, _desc);
+            this.max_content_id = this.max_content_id + 1;
+
+            // this.state.contents.push({
+            //   push는 원본 배열을 훼손한다
+            //   id: this.max_content_id,
+            //   title: _title,
+            //   desc: _desc,
+            // });
+
+            var _contents = this.state.contents.concat({
+              id: this.max_content_id,
+              title: _title,
+              desc: _desc,
+            });
+            this.setState({
+              contents: _contents,
+            });
           }.bind(this)}
         ></CreateContent>
       );
