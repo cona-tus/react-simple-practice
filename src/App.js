@@ -50,14 +50,6 @@ class App extends Component {
         <CreateContent
           onSubmit={function (_title, _desc) {
             this.max_content_id = this.max_content_id + 1;
-
-            // this.state.contents.push({
-            //   push는 원본 배열을 훼손한다
-            //   id: this.max_content_id,
-            //   title: _title,
-            //   desc: _desc,
-            // });
-
             var _contents = this.state.contents.concat({
               id: this.max_content_id,
               title: _title,
