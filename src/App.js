@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TOC from './components/TOC';
 import ReadContent from './components/ReadContent';
 import CreateContent from './components/CreateContent';
+import UpdateContent from './components/UpdateContent';
 import Subject from './components/Subject';
 import Control from './components/Control';
 import './App.css';
@@ -50,13 +51,6 @@ class App extends Component {
         <CreateContent
           onSubmit={function (_title, _desc) {
             this.max_content_id = this.max_content_id + 1;
-
-            // var _contents = this.state.contents.concat({
-            //   id: this.max_content_id,
-            //   title: _title,
-            //   desc: _desc,
-            // });
-
             var newContents = Array.from(this.state.contents);
             newContents.push({
               id: this.max_content_id,
@@ -68,6 +62,23 @@ class App extends Component {
             });
           }.bind(this)}
         ></CreateContent>
+      );
+    } else if (this.state.mode === 'update') {
+      _article = (
+        <UpdateContent
+          onSubmit={function (_title, _desc) {
+            this.max_content_id = this.max_content_id + 1;
+            var newContents = Array.from(this.state.contents);
+            newContents.push({
+              id: this.max_content_id,
+              title: _title,
+              desc: _desc,
+            });
+            this.setState({
+              contents: newContents,
+            });
+          }.bind(this)}
+        ></UpdateContent>
       );
     }
 
