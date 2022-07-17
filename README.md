@@ -12,14 +12,21 @@
 2. [컴포넌트 제작](#2-컴포넌트-제작)
 3. [State](#3-state--key)
 4. [Event](#4-event)
+5. [Deployment](#5-deployment)
 
 <br/>
 
 ## ✨ 결과물
 
 <details>
-  <summary>자세히 보기: React Simple App</summary>
+  <summary>미리보기</summary>
     <img src="https://cdn.inflearn.com/public/files/courses/324041/96463c54-65ca-49eb-92e2-cb6cafcec06b/react.gif" alt="생활코딩 애플리케이션" />
+</details>
+
+<details>
+<summary>바로가기</summary>
+<a href="https://react-simple-practice.netlify.app" target="_blank">
+React Simple App</a>
 </details>
 
 <br/>
@@ -299,6 +306,10 @@ this.state.mode = 'welcome'는 사용할 수 없다.
 
 <br/>
 
----
+## 5. Deployment
 
-<br/>
+```bash
+npm install netlify-cli -g
+netlify deploy
+netlify deploy --prod
+```
