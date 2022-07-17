@@ -7,6 +7,10 @@ class UpdateContent extends Component {
       title: this.props.data.title,
       desc: this.props.data.desc,
     };
+    this.inputFormHandler = this.inputFormHandler.bind(this);
+  }
+  inputFormHandler(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
   render() {
     console.log('UpdateContent render');
@@ -27,11 +31,7 @@ class UpdateContent extends Component {
               name='title'
               placeholder='title'
               value={this.state.title} // props의 value는 Read only
-              onChange={function (e) {
-                this.setState({
-                  title: e.target.value,
-                });
-              }.bind(this)}
+              onChange={this.inputFormHandler}
             ></input>
           </p>
           <p>
@@ -39,11 +39,7 @@ class UpdateContent extends Component {
               name='desc'
               placeholder='description'
               value={this.state.desc}
-              onChange={function (e) {
-                this.setState({
-                  desc: e.target.value,
-                });
-              }.bind(this)}
+              onChange={this.inputFormHandler}
             ></textarea>
           </p>
           <p>
