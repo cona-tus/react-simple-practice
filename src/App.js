@@ -63,6 +63,8 @@ class App extends Component {
             });
             this.setState({
               contents: _contents,
+              mode: 'read',
+              selected_content_id: this.max_content_id,
             });
           }.bind(this)}
         ></CreateContent>
@@ -84,6 +86,7 @@ class App extends Component {
             }
             this.setState({
               contents: _contents,
+              mode: 'read',
             });
           }.bind(this)}
         ></UpdateContent>
